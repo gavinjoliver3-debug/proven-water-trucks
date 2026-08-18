@@ -117,6 +117,22 @@
   footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between;align-items:center}
   footer .brand{color:#fff}
   footer a{color:var(--accent);text-decoration:none;font-weight:900}
+
+  /* bigger form on mobile */
+  @media (max-width:600px){
+    .hero .wrap{gap:22px;padding-top:28px;padding-bottom:34px}
+    .hero h1{font-size:clamp(36px,10vw,52px)}
+    .lede{font-size:17px;margin-top:16px}
+    .formcard{padding:24px 20px;border-radius:16px}
+    .formcard h2{font-size:32px}
+    .formcard .sub{font-size:16px;margin-top:10px}
+    .row2{grid-template-columns:1fr;gap:0}
+    .field{margin-top:20px}
+    .field label{font-size:14px}
+    .field input,.field select{font-size:19px;padding:18px 16px;border-radius:11px}
+    .formcard .btn,.btn--block{font-size:21px;padding:22px}
+    .consent{font-size:13px;margin-top:16px}
+  }
 </style>
 
 <header>
