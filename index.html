@@ -266,6 +266,21 @@ src="https://www.facebook.com/tr?id=1528649985076697&ev=PageView&noscript=1"/></
   var WEB3FORMS_KEY = 'ac9b762c-7ba2-4300-ba52-6ce5304fe3b7';
   var CC_EMAIL = 'joe@proventruckandequipment.com';
   var MAILTO = ['gavin@proventruckandequipment.com','joe@proventruckandequipment.com'];
+  // Zapier: Webhooks by Zapier -> Catch Hook URL (for SMS follow-up + team text alert)
+  var ZAPIER_HOOK = 'https://hooks.zapier.com/hooks/catch/28118617/4tionmb/';
+
+  function postZapier(g){
+    if(!ZAPIER_HOOK || ZAPIER_HOOK.indexOf('http')!==0) return;
+    try{
+      var params=new URLSearchParams({
+        first_name:g('first_name'), last_name:g('last_name'),
+        phone:g('phone'), email:g('email'),
+        truck:g('truck'), price_range:g('price_range'),
+        timeframe:g('timeframe'), source:'Water Truck Landing Page'
+      });
+      fetch(ZAPIER_HOOK,{method:'POST',mode:'no-cors',body:params}); // fire-and-forget
+    }catch(e){}
+  }
 
   var f=document.getElementById('leadform'),
       errEl=document.getElementById('err'),
@@ -297,6 +312,9 @@ src="https://www.facebook.com/tr?id=1528649985076697&ev=PageView&noscript=1"/></
     errEl.classList.remove('show');
     if(!f.checkValidity()){f.reportValidity();return;}
     var x=fields(), g=x.g;
+
+    // Fire lead to Zapier for SMS follow-up + team text alert (fire-and-forget)
+    postZapier(g);
 
     // No key yet -> use mail-app fallback
     if(WEB3FORMS_KEY==='PASTE_KEY_HERE'){ mailtoFallback(); return; }
