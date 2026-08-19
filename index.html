@@ -125,22 +125,25 @@
   footer .brand{color:#fff}
   footer a{color:var(--accent);text-decoration:none;font-weight:900}
 
-  /* form-first, bigger form on mobile */
+  /* form-first, fit-on-one-screen on mobile */
   @media (max-width:600px){
-    .hero .wrap{display:flex;flex-direction:column;gap:26px;padding-top:16px;padding-bottom:34px}
-    .hero .formcard{order:-1}            /* form appears first, right under the header */
+    .bar{height:58px}
+    .brand img.logo{height:44px}
+    .hero .wrap{display:flex;flex-direction:column;gap:18px;padding-top:10px;padding-bottom:26px}
+    .hero .formcard{order:-1}             /* form appears first, right under the header */
     .hero-cta [data-scroll]{display:none} /* form is already on screen; drop the scroll button */
-    .hero h1{font-size:clamp(30px,8.5vw,42px)}
-    .lede{font-size:17px;margin-top:16px}
-    .formcard{padding:24px 20px;border-radius:16px}
-    .formcard h2{font-size:32px}
-    .formcard .sub{font-size:16px;margin-top:10px}
-    .row2{grid-template-columns:1fr;gap:0}
-    .field{margin-top:20px}
-    .field label{font-size:14px}
-    .field input,.field select{font-size:19px;padding:18px 16px;border-radius:11px}
-    .formcard .btn,.btn--block{font-size:21px;padding:22px}
-    .consent{font-size:13px;margin-top:16px}
+    .hero h1{font-size:clamp(28px,8vw,40px)}
+    .lede{font-size:16px;margin-top:12px}
+    .formcard{padding:16px 16px;border-radius:14px}
+    .formcard h2{font-size:22px}
+    .formcard .sub{display:none}          /* drop subtext to save vertical space */
+    .row2{grid-template-columns:1fr 1fr;gap:10px}  /* name + price/timeframe paired */
+    .field{margin-top:10px}
+    .field label{font-size:11px;letter-spacing:.05em}
+    .field input,.field select{font-size:16px;padding:11px 12px;border-radius:9px}  /* 16px avoids iOS zoom */
+    .formcard .btn,.btn--block{font-size:17px;padding:15px;margin-top:14px}
+    .consent{font-size:10px;margin-top:9px;line-height:1.35}
+    .err{font-size:12px}
   }
 </style>
 
