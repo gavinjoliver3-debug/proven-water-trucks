@@ -71,8 +71,8 @@
 
   /* hero */
   .hero{background:var(--surface);border-bottom:3px solid var(--ink)}
-  .hero .wrap{display:grid;gap:40px;padding:clamp(40px,6vw,72px) clamp(18px,4vw,44px)}
-  @media(min-width:960px){.hero .wrap{grid-template-columns:1fr 460px;align-items:start;gap:56px}}
+  .hero .wrap{display:flex;justify-content:center;padding:clamp(32px,5vw,60px) clamp(18px,4vw,44px)}
+  .hero .formcard{width:100%;max-width:480px}
   .hero h1{font-size:clamp(46px,8.5vw,92px);text-transform:uppercase}
   .hero h1 .hl{color:var(--water);display:block}
   .lede{margin-top:22px;font-size:clamp(18px,2.2vw,22px);color:var(--ink-soft);max-width:40ch;font-weight:600}
@@ -158,16 +158,6 @@
 
 <section class="hero">
   <div class="wrap">
-    <div>
-      <span class="eyebrow">In stock · Financing available</span>
-      <h1>Water trucks<span class="hl">ready to work.</span></h1>
-      <p class="lede">Dust control, compaction, site prep. Road-ready trucks with financing that keeps your cash on the job. Get pricing the same business day.</p>
-      <div class="hero-cta">
-        <button class="btn" type="button" data-scroll>Get my quote</button>
-        <a class="btn btn--ghost" href="tel:+19092226224">Call now</a>
-      </div>
-    </div>
-
     <div class="formcard" id="lead">
       <form id="leadform" novalidate>
         <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
